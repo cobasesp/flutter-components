@@ -11,8 +11,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Material App', 
       // home: Listview2Screen(),
-      initialRoute: 'listview2',
+      initialRoute: 'home',
       routes: {
+        'home': ((context) => const HomeScreen()),
         'listview1': ((context) => const Listview1Screen()),
         'listview2': ((context) => const Listview2Screen()),
         'alert': ((context) => const AlertScreen()),
