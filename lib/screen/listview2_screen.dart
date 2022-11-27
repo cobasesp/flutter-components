@@ -16,7 +16,6 @@ class Listview2Screen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text("Listview 2"),
-          backgroundColor: Colors.indigo,
         ),
         // Se usa el separator para poner un divider ye lbuilder es igual pero sin separador
         body: ListView.separated(
