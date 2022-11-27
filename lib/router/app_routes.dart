@@ -13,12 +13,23 @@ class AppRoutes {
     MenuOption(route: 'alert', icon: Icons.add_alert_outlined, name: 'Alerts', screen: const AlertScreen()),
   ];
 
-  static Map<String, Widget Function(BuildContext)> routes = {
-    'home': ((context) => const HomeScreen()),
-    'listview1': ((context) => const Listview1Screen()),
-    'listview2': ((context) => const Listview2Screen()),
-    'alert': ((context) => const AlertScreen()),
-  };
+  static Map<String, Widget Function(BuildContext)> getAppRoutes() {
+
+    Map<String, Widget Function(BuildContext)> appRoutes = {};
+
+    for (final option in menuOptions) {
+      appRoutes.addAll({ option.route : (BuildContext context) => option.screen });
+    }
+
+    return appRoutes;
+  }
+
+  // static Map<String, Widget Function(BuildContext)> routes = {
+  //   'home': ((context) => const HomeScreen()),
+  //   'listview1': ((context) => const Listview1Screen()),
+  //   'listview2': ((context) => const Listview2Screen()),
+  //   'alert': ((context) => const AlertScreen()),
+  // };
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     // En onGenerateRoute solo entra si la ruta que va a generar no existe

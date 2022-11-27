@@ -1,4 +1,4 @@
-import 'package:components/screen/screen.dart';
+import 'package:components/router/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -11,12 +11,12 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Lista de componentes"),
         backgroundColor: Colors.indigo,
-        elevation: 0,
       ),
       body: ListView.separated(
         itemBuilder: ((context, index) => ListTile(
-          title: const Text("Ruta ejemplo"),
-          trailing: const Icon(Icons.keyboard_arrow_right),
+          title: Text(AppRoutes.menuOptions[index].name),
+          leading: Icon(AppRoutes.menuOptions[index].icon, color: Colors.indigo,),
+          trailing: const Icon(Icons.keyboard_arrow_right_outlined),
           onTap: () {
 
             // Metodo 1 - Generando un materialpage route
@@ -26,12 +26,12 @@ class HomeScreen extends StatelessWidget {
             // Navigator.push(context, route);
 
             // Metodo2 - sencillo, solo con pushnamed y el nombre de la ruta∫
-            Navigator.pushNamed(context, 'listview2');
+            Navigator.pushNamed(context, AppRoutes.menuOptions[index].route);
 
           }
         )), 
         separatorBuilder: ((context, index) => const Divider()), 
-        itemCount: 10
+        itemCount: AppRoutes.menuOptions.length
       ),
     );
   }
