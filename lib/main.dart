@@ -18,6 +18,15 @@ class MyApp extends StatelessWidget {
         'listview2': ((context) => const Listview2Screen()),
         'alert': ((context) => const AlertScreen()),
       },
+      onGenerateRoute: (settings) {
+        // En onGenerateRoute solo entra si la ruta que va a generar no existe
+        print(settings);
+
+        // Metodo para controlar si la ruta no existe
+        return MaterialPageRoute(
+          builder: (context) => AlertScreen()
+        );
+      },
     );
   }
 }
